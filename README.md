@@ -30,7 +30,7 @@ _**Disclaimer** : This is a fork from [bakerface/wireless-tools](http://github.c
   - [udhcpc.disable(interface, callback)](#udhcpcdisableinterface-callback) - stop a dhcp client
 - [udhcpd](#udhcpd) - configure a dhcp server
   - [udhcpd.enable(options, callback)](#udhcpdenableoptions-callback) - start a dhcp server
-  - [udhcpd.disable(options, callback)](#udhcpddisableinterface-callback) - stop a dhcp server
+  - [udhcpd.disable(options, callback)](#udhcpddisableoptions-callback) - stop a dhcp server
 - [wpa_cli](#wpa_cli) - send commands to wpa_supplicant using wpa_cli
   - [wpa_cli.status(interface, callback)](#wpa_clistatusinterface-callback) - get status of wpa
   - [wpa_cli.bssid(interface, ap, ssid, callback)](#wpa_clibssidinterface-ap-ssid-callback) - set preferred bssid for ssid
