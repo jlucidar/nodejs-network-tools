@@ -98,6 +98,7 @@ function expand(options) {
  *
  * var options = {
  *   interface: 'wlan0',
+ *   tmpPath: '/tmp/',
  *   start: '192.168.10.100',
  *   end: '192.168.10.200',
  *   option: {
@@ -129,20 +130,26 @@ function enable(options, callback) {
  *
  * @static
  * @category udhcpd
- * @param {string} interface The network interface.
+ * @param {object} options The dhcp server options or a String containing the name of the network interface to stop.
  * @param {function} callback The callback function.
  * @returns {process} The child process.
  * @example
  *
  * var udhcpd = require('wireless-tools/udhcpd');
  *
- * udhcpd.disable('wlan0', function(err) {
+ * options = {
+ *   interface: 'wlan0',
+ *   tmpPath: '/tmp/'
+ * }
+ * udhcpd.disable(options, function(err) {
  *   // the dhcp server was stopped 
  * });
  *
  */
-function disable(interface, callback) {
-  var path = options.tmpPath || '';;
+function disable(options, callback) {
+  if(typeof options === 'string')
+    options = {interface: options, path: ''};
+  var path = options.tmpPath || '';h
   var file = path + options.interface + '-udhcpd.conf';
   return this.exec('kill `pgrep -f "^udhcpd ' + file + '"` || true', callback);
 }
