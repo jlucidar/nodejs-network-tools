@@ -113,7 +113,8 @@ function expand(options) {
  *
  */
 function enable(options, callback) {
-  var file = options.interface + '-udhcpd.conf';
+  var path = options.tmpPath || '';
+  var file = path + options.interface + '-udhcpd.conf';
 
   var commands = [].concat(
     'cat <<EOF >' + file + ' && udhcpd ' + file + ' && rm -f ' + file,
@@ -141,6 +142,7 @@ function enable(options, callback) {
  *
  */
 function disable(interface, callback) {
-  var file = interface + '-udhcpd.conf';
+  var path = options.tmpPath || '';;
+  var file = path + options.interface + '-udhcpd.conf';
   return this.exec('kill `pgrep -f "^udhcpd ' + file + '"` || true', callback);
 }
