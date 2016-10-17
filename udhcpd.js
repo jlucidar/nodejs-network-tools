@@ -151,5 +151,5 @@ function disable(options, callback) {
     options = {interface: options, path: ''};
   var path = options.tmpPath || '';
   var file = path + options.interface + '-udhcpd.conf';
-  return this.exec('kill `pgrep -f "^udhcpd ' + file + '"` || true', callback);
+  return this.exec("kill `ps | awk ' /udhcpd "+file.replace(/\//g,"\\/")+"/ { print $1 }'` || true", callback);
 }
