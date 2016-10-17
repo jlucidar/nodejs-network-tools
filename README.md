@@ -1,4 +1,6 @@
-# Wireless tools for Node.js
+_**Disclaimer** : This is a fork from [bakerface/wireless-tools](http://github.com/bakerface/wireless-tools). The following information might be outdated or differing from the original documentation._ 
+
+# Network tools for Node.js
 [![npm version](https://badge.fury.io/js/wireless-tools.svg)](http://badge.fury.io/js/wireless-tools)
 [![release version](https://img.shields.io/badge/version-0.18.1-blue.svg)](https://github.com/bakerface/wireless-tools)
 [![build status](https://travis-ci.org/bakerface/wireless-tools.svg?branch=master)](https://travis-ci.org/bakerface/wireless-tools)
