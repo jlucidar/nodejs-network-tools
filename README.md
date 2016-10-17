@@ -30,7 +30,7 @@ _**Disclaimer** : This is a fork from [bakerface/wireless-tools](http://github.c
   - [udhcpc.disable(interface, callback)](#udhcpcdisableinterface-callback) - stop a dhcp client
 - [udhcpd](#udhcpd) - configure a dhcp server
   - [udhcpd.enable(options, callback)](#udhcpdenableoptions-callback) - start a dhcp server
-  - [udhcpd.disable(interface, callback)](#udhcpddisableinterface-callback) - stop a dhcp server
+  - [udhcpd.disable(options, callback)](#udhcpddisableinterface-callback) - stop a dhcp server
 - [wpa_cli](#wpa_cli) - send commands to wpa_supplicant using wpa_cli
   - [wpa_cli.status(interface, callback)](#wpa_clistatusinterface-callback) - get status of wpa
   - [wpa_cli.bssid(interface, ap, ssid, callback)](#wpa_clibssidinterface-ap-ssid-callback) - set preferred bssid for ssid
@@ -410,6 +410,7 @@ var udhcpd = require('wireless-tools/udhcpd');
 
 var options = {
   interface: 'wlan0',
+  tmpPath: '/tmp/',
   start: '192.168.10.100',
   end: '192.168.10.200',
   option: {
@@ -424,13 +425,18 @@ udhcpd.enable(options, function(err) {
 });
 ```
 
-## udhcpd.disable(interface, callback)
+## udhcpd.disable(options, callback)
 The **udhcpd disable** command is used to stop a dhcp server on a specific network interface.
 
 ``` javascript
 var udhcpd = require('wireless-tools/udhcpd');
 
-udhcpd.disable('wlan0', function(err) {
+var options = {
+  interface: 'wlan0',
+  tmpPath: '/tmp/'
+}
+
+udhcpd.disable(options, function(err) {
   // the dhcp server was stopped
 });
 ```
