@@ -149,7 +149,7 @@ function enable(options, callback) {
 function disable(options, callback) {
   if(typeof options === 'string')
     options = {interface: options, path: ''};
-  var path = options.tmpPath || '';h
+  var path = options.tmpPath || '';
   var file = path + options.interface + '-udhcpd.conf';
   return this.exec('kill `pgrep -f "^udhcpd ' + file + '"` || true', callback);
 }
