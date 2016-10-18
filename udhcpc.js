@@ -56,7 +56,7 @@ var udhcpc = module.exports = {
  *
  */
 function disable(interface, callback) {
-  var command = "kill `ps | awk ' /udhcpc -i "+interface+" -n/ { print $1 }'` || true";
+  var command = "kill `ps | awk ' /udhcpc -i "+interface+" -b/ { print $1 }'` || true";
   return this.exec(command, callback);
 }
 
@@ -83,6 +83,6 @@ function disable(interface, callback) {
  *
  */
 function enable(options, callback) {
-  var command = 'udhcpc -i ' + options.interface + ' -n';
+  var command = 'udhcpc -i ' + options.interface + ' -b';
   return this.exec(command, callback);  
 }
