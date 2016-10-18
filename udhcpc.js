@@ -56,7 +56,7 @@ var udhcpc = module.exports = {
  *
  */
 function disable(interface, callback) {
-  var command = 'kill `pgrep -f "^udhcpc -i ' + interface + '"` || true';
+  var command = "kill `ps | awk ' /udhcpc -i "+interface+" -n/ { print $1 }'` || true";
   return this.exec(command, callback);
 }
 
